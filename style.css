@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: 'VT323', monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+:root {
+  --bodyBG: #414141;
+  --border1: #595f43;
+  --gameBoard: #abb78a;
+  --border2: #8b966c;
+  --border3: #c4cfa3;
+  --food: #dedede;
+  --foodB: #999;
+  --snake: #414141;
+  --snakeB: #707070;
+}
+
+body {
+  height: 100svh;
+  width: 100svw;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  background-color: var(--bodyBG);
+}
+
+.score {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  color: var(--food);
+}
+/* board -----------------------------------------------*/
+.gameBoard {
+  width: 300px;
+  height: 300px;
+  background-color: var(--gameBoard);
+  display: grid;
+  grid-template-columns: repeat(21, 1fr);
+  grid-template-rows: repeat(21, 1fr);
+}
+.border1 {
+  border: 12px solid var(--border1);
+  border-radius: 8px;
+}
+.border2 {
+  border: 12px solid var(--border2);
+  border-radius: 12px;
+  box-shadow: inset 0 0 0 5px var(--border2);
+}
+
+/* controls ----------------------------------------------- */
+
+.controls {
+  margin-top: 50px;
+  width: 250px;
+  height: 125px;
+  display: grid;
+  grid-template-columns: repeat(10, 25px);
+  grid-template-rows: repeat(5, 25px);
+}
+.controls button {
+  background-color: var(--border3);
+  border: none;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px #3ac2bd;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.controls button:hover {
+  box-shadow: 4px 4px 4px #5ffbf5;
+  scale: 1.1;
+}
+
+.up {
+  grid-area: 1/3/3/4;
+}
+.down {
+  grid-area: 4/3/6/4;
+}
+.left {
+  grid-area: 3/1/4/3;
+}
+.right {
+  grid-area: 3/4/4/6;
+}
+
+.playPause {
+  grid-area: 2/9/3/11;
+}
+.reset {
+  grid-area: 4/9/5/11;
+}
+
+/* Snake or food --------------------------- */
+
+.snake {
+  background-color: var(--snakeB);
+  border: 1px solid var(--snake);
+}
+.snakeHead {
+  background-color: var(--snake);
+  z-index: 5;
+}
+
+.food {
+  background-color: var(--food);
+  border: 3px solid var(--foodB);
+}
